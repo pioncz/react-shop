@@ -1,0 +1,122 @@
+@import './styles/variables.scss';
+
+.header {
+  background: $background;
+  color: $color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9000;
+  height: 60px;
+  box-sizing: border-box;
+
+  &__items {
+    height: 60px;
+    display: flex;
+    align-items: center;
+
+    > a {
+      padding: 19px 10px;
+      color: $color;
+      line-height: 22px;
+      text-decoration: none;
+      transition: background 0.2s ease-in-out;
+
+      &.router-link-active {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      &:hover {
+        color: $color;
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  &__actions {
+    flex: 1 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    > * {
+      margin: 0 $margin1;
+    }
+  }
+
+  &__action {
+    position: relative;
+  }
+
+  &__action-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    margin-top: 24px;
+    background: $background;
+    box-shadow: 0px 4px 12px 3px rgba(0, 0, 0, 0.25);
+    min-width: 200px;
+    padding: $margin2;
+    border-radius: $borderRadius;
+
+    &::after {
+      content: '';
+      position: absolute;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid $background;
+      top:-10px;
+      right: 20px;
+    }
+  }
+
+  &__cart-products {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: $margin1 $margin0;
+
+      &:nth-child(odd) {
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      &:nth-child(even) {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    li:last-child {
+      margin-top: $margin0;
+      margin-bottom: $margin1;
+      border-top: 1px solid #fff;
+      background: none;
+    }
+  }
+}
+
+.main {
+  height: 100%;
+  padding: 60px 0;
+}
+
+.footer {
+  background: $background;
+  color: $color;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9000;
+  height: 60px;
+  box-sizing: border-box;
+
+  > div {
+    display: flex;
+    padding: 20px;
+    justify-content: flex-end;
+  }
+}
